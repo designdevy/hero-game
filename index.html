@@ -58,7 +58,7 @@
 
     <div id="allAboutHero">
         <div id="photo-hero" class="aboutHero">
-          <img src="" id="enemy-photo"
+          <img onclick="deleteEnemy()" src="" id="enemy-photo"
             alt="Photo of an Enemy" />
         </div>
   
@@ -72,6 +72,9 @@
           </ul>
         </div>
       </div>
+
+    <h2 id="totalEnemies"></h2>
+    <h3>Press on an enemy's photo to deleat him.</h3>
   </main>
   <!-- I RECOMMEND YOU LEAVE THE REST UNTOUCHED -->
   <button onclick="mocha.checkLeaks(); mocha.run();">Run the tests!</button>

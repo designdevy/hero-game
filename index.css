@@ -28,7 +28,7 @@ main {
 }
 
 .aboutHero {
-    margin: 15px;
+    margin: 0 15px;
     min-width: 25%;
     height: 300px;
     text-align: center;
@@ -44,6 +44,16 @@ ul {
 .infoDetailed {
     line-height: 2rem;
     letter-spacing: 1.5;
+}
+
+#nameNewForm {
+    font-size: 22px;
+    font-weight: bold;
+}
+
+#submitNewName {
+    height: 30px;
+    font-size: 20px;
 }
 
 #infoName, #enemyName {
