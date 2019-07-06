@@ -28,6 +28,7 @@ main {
 .aboutHero {
     margin: 15px;
     min-width: 25%;
+    height: 300px;
     text-align: center;
     border: 2px solid black;
     border-radius: 5px;
@@ -43,6 +44,29 @@ ul {
     letter-spacing: 1.5;
 }
 
-#infoName {
+#infoName, #enemyName {
     font-family: 'Barriecito', cursive, 'DM Serif Display', serif;
+}
+
+#attackButtons {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+.enemyButtons {
+    height: 35px;
+    border-radius: 8px;
+    margin : 0 20px;
+    font-size: 25px;
+}
+
+#attackEnemyButton {
+    background-color: red;
+    color: white;
+}
+
+#enemy-photo {
+    max-width: 300px;
+    max-height: 300px;
 }

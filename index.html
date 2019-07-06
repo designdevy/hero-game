@@ -5,7 +5,8 @@
   <title>Mocha Tests</title>
   <link href="lib/mocha.css" rel="stylesheet" />
   <link rel="stylesheet" type="text/css" href="index.css">
-  <link href="https://fonts.googleapis.com/css?family=Barriecito|DM+Serif+Display|Rubik+Mono+One&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Barriecito|DM+Serif+Display|Rubik+Mono+One&display=swap"
+    rel="stylesheet">
 </head>
 
 <body>
@@ -15,6 +16,7 @@
         <img src="https://s3.ap-south-1.amazonaws.com/pogons3/characters/88.png" id="hero-photo"
           alt="Photo of a hero" />
       </div>
+
       <div id="heroInfo" class="aboutHero">
         <h2>Your hero is:</h2>
         <h1 id="infoName"></h1>
@@ -25,6 +27,7 @@
         </ul>
       </div>
     </div>
+
     <div id="functionalBlock">
       <button onclick="rest(hero)" class="functionalButton"><img
           src="https://www.chinookmed.com/mas_assets/cache/image/1/3/a/a/5034.Jpg" id="inn" class="functionalImg"
@@ -36,15 +39,38 @@
           src="https://images-na.ssl-images-amazon.com/images/I/918dHsXYq7L._SX425_.jpg" id="bag" class="functionalImg"
           alt="Health and rest" /></button>
     </div>
+
     <div id="nameNewForm">
       <form>
         <div>
           <label for="newHeroName">Change the name of the hero:</lebel>
-          <input type="text" id="newHeroName"/>
-          <button id="submitNewName" onclick="changeHeroName(event)">Submit new name</button>
+            <input type="text" id="newHeroName" />
+            <button id="submitNewName" onclick="changeHeroName(event)">Submit new name</button>
         </div>
       </form>
     </div>
+
+    <div id="attackButtons">
+      <button onclick="findEnemy()" class="enemyButtons" id="findEnemyButton">Find random Enemy</button>
+      <button onclick="attack()" class="enemyButtons" id="attackEnemyButton">Attack an Enemy</button>
+    </div>
+
+    <div id="allAboutHero">
+        <div id="photo-hero" class="aboutHero">
+          <img src="" id="enemy-photo"
+            alt="Photo of an Enemy" />
+        </div>
+  
+        <div id="heroInfo" class="aboutHero">
+          <h2>Your enemy is:</h2>
+          <h1 id="enemyName"></h1>
+          <ul>
+            <li class="infoDetailed" id="enemyHealth"></li>
+            <li class="infoDetailed" id="enemyWeaponType"></li>
+            <li class="infoDetailed" id="enemyWeaponDamage"></li>
+          </ul>
+        </div>
+      </div>
   </main>
   <!-- I RECOMMEND YOU LEAVE THE REST UNTOUCHED -->
   <button onclick="mocha.checkLeaks(); mocha.run();">Run the tests!</button>
