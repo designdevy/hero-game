@@ -44,4 +44,11 @@ function displayStats(heroObject) {
     document.getElementById("infoWeaponDamage").innerHTML = 'Weapon damage: ' + heroObject.weapon.damage;
 }
 
+function changeHeroName(event) {
+    event.preventDefault()
+    hero.name = document.getElementById('newHeroName').value;
+    displayStats(hero);
+    document.getElementById('newHeroName').value = null;
+}
+
 displayStats(hero)
