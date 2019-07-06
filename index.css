@@ -33,3 +33,16 @@ main {
     border-radius: 5px;
     background-color: white;
 }
+
+ul {
+    text-align: left;
+}
+
+.infoDetailed {
+    line-height: 2rem;
+    letter-spacing: 1.5;
+}
+
+h1 {
+    font-family: 'Barriecito', cursive, 'DM Serif Display', serif;
+}
