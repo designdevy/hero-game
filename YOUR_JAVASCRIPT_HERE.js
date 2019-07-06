@@ -37,8 +37,11 @@ function equipWeapon(heroObject) {
     }
 }
 
-// function displayStats() {
+function displayStats(heroObject) {
+    document.getElementById('infoName').innerHTML = heroObject.name;
+    document.getElementById("infoHealth").innerHTML = 'Health: ' + heroObject.health;
+    document.getElementById("infoWeaponType").innerHTML = 'Weapon type: ' + heroObject.weapon.type;
+    document.getElementById("infoWeaponDamage").innerHTML = 'Weapon damage: ' + heroObject.weapon.damage;
+}
 
-// }
-
-// displayStats()
+displayStats(hero)
