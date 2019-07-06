@@ -86,6 +86,11 @@ function displayStats(heroObject) {
     document.getElementById("infoHealth").innerHTML = 'Health: ' + heroObject.health;
     document.getElementById("infoWeaponType").innerHTML = 'Weapon type: ' + heroObject.weapon.type;
     document.getElementById("infoWeaponDamage").innerHTML = 'Weapon damage: ' + heroObject.weapon.damage;
+    if (heroObject.health <= 0) {
+        document.getElementById("infoHealth").style.color = "red";
+    } else {
+        document.getElementById("infoHealth").style.color = "black";
+    }
 }
 
 function changeHeroName(event) {
@@ -108,22 +113,31 @@ function displayEnemyStats() {
     document.getElementById("enemyWeaponType").innerHTML = 'Weapon type: ' + enemy[randomNumber].weapon.type;
     document.getElementById("enemyWeaponDamage").innerHTML = 'Weapon damage: ' + enemy[randomNumber].weapon.damage;
     document.getElementById("enemy-photo").src = enemy[randomNumber].photo;
+    if (enemy[randomNumber].health <= 0) {
+        document.getElementById("enemyHealth").style.color = "red";
+    } else {
+        document.getElementById("enemyHealth").style.color = "black";
+    }
 }
 
 function attack() {
-    if (enemy[randomNumber].health > 0) {
+    if (enemy[randomNumber].health > 0 && hero.health > 0) {
         hero.health = hero.health - enemy[randomNumber].weapon.damage;
         enemy[randomNumber].health = enemy[randomNumber].health - hero.weapon.damage;
-        displayStats(hero);
-        displayEnemyStats();
-        if (enemy[randomNumber].health <= 0) {
-            alert("You wined!");
+        if (enemy[randomNumber].health <= 0 && hero.health <= 0) {
+            alert("Nobody won!");
         } else if (hero.health <= 0) {
             alert("You lose! Get some rest!");
+        } else if (enemy[randomNumber].health <= 0) {
+            alert("You won!");
         }
-    } else {
-        alert('You already won! Choose a new enemy!');
+    } else if (enemy[randomNumber].health <= 0) {
+        alert('Enemy needs rest! Choose a new one!');
+    } else if (hero.health <= 0) {
+        alert("You are exhausted! Get some rest!");
     }
+    displayStats(hero);
+    displayEnemyStats();
 }
 
 findEnemy()
