@@ -49,7 +49,8 @@ const enemy = [{
     weapon: {
         type: "kung fu",
         damage: 3
-    }}]
+    }
+}]
 
 const newWeapon = {
     type: "dagger",
@@ -94,8 +95,14 @@ function changeHeroName(event) {
     document.getElementById('newHeroName').value = null;
 }
 
+let randomNumber;
+
 function findEnemy() {
-    let randomNumber = Math.floor(Math.random() * ((enemy.length - 1) + 1));
+    randomNumber = Math.floor(Math.random() * ((enemy.length - 1) + 1));
+    displayEnemyStats();
+}
+
+function displayEnemyStats() {
     document.getElementById('enemyName').innerHTML = enemy[randomNumber].name;
     document.getElementById("enemyHealth").innerHTML = 'Health: ' + enemy[randomNumber].health;
     document.getElementById("enemyWeaponType").innerHTML = 'Weapon type: ' + enemy[randomNumber].weapon.type;
@@ -103,5 +110,21 @@ function findEnemy() {
     document.getElementById("enemy-photo").src = enemy[randomNumber].photo;
 }
 
-findEnemy() 
+function attack() {
+    if (enemy[randomNumber].health > 0) {
+        hero.health = hero.health - enemy[randomNumber].weapon.damage;
+        enemy[randomNumber].health = enemy[randomNumber].health - hero.weapon.damage;
+        displayStats(hero);
+        displayEnemyStats();
+        if (enemy[randomNumber].health <= 0) {
+            alert("You wined!");
+        } else if (hero.health <= 0) {
+            alert("You lose! Get some rest!");
+        }
+    } else {
+        alert('You already won! Choose a new enemy!');
+    }
+}
+
+findEnemy()
 displayStats(hero)
