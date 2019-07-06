@@ -1,6 +1,6 @@
 // Write your JS here
 const hero = {
-    name: "Iron",
+    name: "Lemming",
     heroic: true,
     inventory: [],
     health: 10,
@@ -36,3 +36,9 @@ function equipWeapon(heroObject) {
         return null;
     }
 }
+
+// function displayStats() {
+
+// }
+
+// displayStats()
