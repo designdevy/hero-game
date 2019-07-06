@@ -140,5 +140,20 @@ function attack() {
     displayEnemyStats();
 }
 
+function countEnemies() {
+    document.getElementById("totalEnemies").innerHTML = 'Number of potential emenies: ' + enemy.length;
+}
+
+function deleteEnemy() {
+    enemy.splice(randomNumber, 1);
+    countEnemies();
+    if (enemy.length < 1) {
+        alert("No more enemies available! You deleted them all!  Start the game once again!");
+    } else {
+    findEnemy();
+    }
+}
+
+countEnemies()
 findEnemy()
 displayStats(hero)
