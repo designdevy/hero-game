@@ -5,14 +5,56 @@ const hero = {
     inventory: [],
     health: 10,
     weapon: {
-        type: "gun",
+        type: "fly swatter",
         damage: 2
     }
 }
 
+const enemy = [{
+    name: "Bear",
+    heroic: false,
+    inventory: [],
+    photo: "https://vignette.wikia.nocookie.net/grizzy-and-the-lemmings/images/3/3a/Grizzy.jpg/revision/latest?cb=20171206194635",
+    health: 10,
+    weapon: {
+        type: "water gun",
+        damage: 1
+    }
+}, {
+    name: "Elk",
+    heroic: false,
+    photo: "https://images.vexels.com/media/users/3/160388/isolated/preview/391f1018f9e1a403557d212c8e83ddba-moose-elk-antler-flat-by-vexels.png",
+    inventory: [],
+    health: 10,
+    weapon: {
+        type: "horns",
+        damage: 2
+    }
+}, {
+    name: "Hare",
+    heroic: false,
+    photo: "https://upload.wikimedia.org/wikipedia/en/thumb/1/17/Bugs_Bunny.svg/220px-Bugs_Bunny.svg.png",
+    inventory: [],
+    health: 10,
+    weapon: {
+        type: "teeth",
+        damage: 1
+    }
+}, {
+    name: "Panda",
+    heroic: false,
+    photo: "http://www.hisop.cat/3957-large_default/figura-po-kung-fu-panda.jpg",
+    inventory: [],
+    health: 10,
+    weapon: {
+        type: "kung fu",
+        damage: 3
+    }
+}]
+
 const newWeapon = {
-    type : "dagger",
-    damage : 2
+    type: "dagger",
+    damage: 2
 }
 
 function rest(heroObject) {
@@ -53,4 +95,36 @@ function changeHeroName(event) {
     document.getElementById('newHeroName').value = null;
 }
 
+let randomNumber;
+
+function findEnemy() {
+    randomNumber = Math.floor(Math.random() * ((enemy.length - 1) + 1));
+    displayEnemyStats();
+}
+
+function displayEnemyStats() {
+    document.getElementById('enemyName').innerHTML = enemy[randomNumber].name;
+    document.getElementById("enemyHealth").innerHTML = 'Health: ' + enemy[randomNumber].health;
+    document.getElementById("enemyWeaponType").innerHTML = 'Weapon type: ' + enemy[randomNumber].weapon.type;
+    document.getElementById("enemyWeaponDamage").innerHTML = 'Weapon damage: ' + enemy[randomNumber].weapon.damage;
+    document.getElementById("enemy-photo").src = enemy[randomNumber].photo;
+}
+
+function attack() {
+    if (enemy[randomNumber].health > 0) {
+        hero.health = hero.health - enemy[randomNumber].weapon.damage;
+        enemy[randomNumber].health = enemy[randomNumber].health - hero.weapon.damage;
+        displayStats(hero);
+        displayEnemyStats();
+        if (enemy[randomNumber].health <= 0) {
+            alert("You wined!");
+        } else if (hero.health <= 0) {
+            alert("You lose! Get some rest!");
+        }
+    } else {
+        alert('You already won! Choose a new enemy!');
+    }
+}
+
+findEnemy()
 displayStats(hero)
