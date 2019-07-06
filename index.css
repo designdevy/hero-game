@@ -1,0 +1,35 @@
+main {
+    padding: 30px;
+    background: linear-gradient(to bottom right,#3F92BF, #FFFFFF);
+}
+
+#functionalBlock {
+    display: flex;
+    justify-content: center;
+    margin: 30px auto;
+}
+
+.functionalImg {
+    width: 120px;
+    height: 120px;
+}
+
+.functionalButton {
+    border-radius: 8px;
+    margin : 0 20px;
+    background-color: white;
+}
+
+#allAboutHero {
+    display: flex;
+    justify-content: center;
+}
+
+.aboutHero {
+    margin: 15px;
+    min-width: 25%;
+    text-align: center;
+    border: 2px solid black;
+    border-radius: 5px;
+    background-color: white;
+}
