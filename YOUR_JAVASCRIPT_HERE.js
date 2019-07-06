@@ -21,6 +21,7 @@ function rest(heroObject) {
         return heroObject;
     } else {
         heroObject.health = 10;
+        displayStats(hero);
         return heroObject;
     }
 }
@@ -32,6 +33,7 @@ function pickUpItem(heroObject, newWeapon) {
 function equipWeapon(heroObject) {
     if (heroObject.inventory.length > 0) {
         heroObject.weapon = heroObject.inventory[0];
+        displayStats(heroObject);
     } else {
         return null;
     }
