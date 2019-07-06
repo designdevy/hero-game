@@ -6,7 +6,12 @@ main {
 #functionalBlock {
     display: flex;
     flex-direction: column;
-    column-count: 2;
+    min-width: 15%;
+    margin: 0 15px;
+}
+
+#weaponsBlock {
+    min-width: 15%;
 }
 
 .functionalImg {
