@@ -70,6 +70,7 @@ function rest(heroObject) {
 
 function pickUpItem(heroObject, newWeapon) {
     heroObject.inventory.push(newWeapon);
+    displayInventory();
 }
 
 function equipWeapon(heroObject) {
@@ -154,6 +155,36 @@ function deleteEnemy() {
     }
 }
 
+function displayInventory() {
+    document.getElementById('inventoryList').innerHTML = null;
+    if (hero.inventory.length < 1) {
+        emptyWarning.innerHTML = "Your bag is empty!";
+    } else if (hero.inventory.length > 11) {
+        alert('Too many items in your bag! Deleate something, pressing on the item!');
+    } else {
+        let newItem;
+        emptyWarning.innerHTML = null;
+        for (let i in hero.inventory) {
+            newItem = document.createElement('li');
+            newItem.innerHTML = hero.inventory[i].type;
+            newItem.addEventListener('click', deleteInventory);
+            document.getElementById('inventoryList').appendChild(newItem);
+        }
+    }
+}
+
+function deleteInventory() {
+    let elToDeleat = this.innerHTML;
+    for (let j = 0; j < hero.inventory.length; j++) {
+        if (elToDeleat == hero.inventory[j].type) {
+            hero.inventory.splice(j, 1);
+            displayInventory();
+            return null;
+        }
+    }
+}
+
+displayInventory()
 countEnemies()
 findEnemy()
 displayStats(hero)
